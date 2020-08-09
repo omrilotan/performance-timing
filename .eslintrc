@@ -1,0 +1,6 @@
+{
+  "extends": "@omrilotan",
+  "env": {
+    "browser": true
+  }
+}

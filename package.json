@@ -1,0 +1,45 @@
+{
+  "name": "performance-timing",
+  "description": "👓 A straight-forward interface to retrieving performance timing metrics.",
+  "version": "1.0.0",
+  "keywords": [
+    "PerformanceObserver",
+    "PerformanceTiming",
+    "PerformanceNavigationTiming",
+    "PerformanceResourceTiming",
+    "PerformancePaintTiming",
+    "PerformanceEventTiming",
+    "getEntries",
+    "observer",
+    "promise",
+    "async",
+    "await",
+    "👓"
+  ],
+  "author": "omrilotan",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.js",
+  "browser": "index.js",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "test": "NODE_ENV=test node --max_old_space_size=2048 ./node_modules/karma/bin/karma start config/index.js --loglevel debug",
+    "lint": "eslint . --plugin log"
+  },
+  "devDependencies": {
+    "@lets/wait": "^2.0.2",
+    "@omrilotan/eslint-config": "^1.1.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.6.0",
+    "eslint-plugin-log": "^1.2.3",
+    "karma": "^5.1.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-webpack": "^4.0.2",
+    "mocha": "^8.1.1",
+    "webpack": "^4.44.1"
+  }
+}
