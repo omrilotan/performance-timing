@@ -1,4 +1,5 @@
 .*
 *.log
-spec.js
+tests/*
+spec-helpers/*
 config

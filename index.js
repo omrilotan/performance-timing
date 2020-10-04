@@ -10,11 +10,21 @@ export const getEntries = (...entryTypes) => new Promise(
 			return;
 		}
 
+		const options = {
+			until: () => true
+		};
+
+		const last = entryTypes[entryTypes.length - 1];
+
+		if (typeof last === 'object') {
+			Object.assign(options, last);
+		}
+
 		const entries = entryTypes.map(
 			entryType => window.performance.getEntriesByType(entryType),
 		).flat();
 
-		if (entries.length) {
+		if (entries.length && options.until(entries)) {
 			resolve(entries);
 			return;
 		}
@@ -26,8 +36,10 @@ export const getEntries = (...entryTypes) => new Promise(
 
 		const observer = new window.PerformanceObserver(
 			(entryList, observer) => {
-				resolve(entryList.getEntries());
-				observer.disconnect();
+				if (options.until(entries)) {
+					resolve(entryList.getEntries());
+					observer.disconnect();
+				}
 			},
 		);
 

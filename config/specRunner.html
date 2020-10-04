@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	</head>
+	<body>
+		<script src="context.js"></script>
+		<script type="text/javascript">
+			%CLIENT_CONFIG%
+			window.__karma__.setupContext(window);
+			%MAPPINGS%
+		</script>
+		%SCRIPTS%
+		<script type="module">
+			window.__karma__.loaded();
+		</script>
+		<script nomodule>
+			window.__karma__.loaded();
+		</script>
+		<img src="https://dummyimage.com/1000x700/ffeedd/000000.png">
+	</body>
+</html>

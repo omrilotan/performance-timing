@@ -1,7 +1,7 @@
 {
   "name": "performance-timing",
   "description": "👓 A straight-forward interface to retrieving performance timing metrics.",
-  "version": "1.0.0",
+  "version": "1.1.0-rc.0",
   "keywords": [
     "PerformanceObserver",
     "PerformanceTiming",
@@ -18,13 +18,20 @@
   ],
   "author": "omrilotan",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omrilotan/performance-timing.git"
+  },
+  "homepage": "https://github.com/omrilotan/performance-timing#readme",
   "main": "index.js",
   "module": "index.js",
   "browser": "index.js",
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "test": "NODE_ENV=test node --max_old_space_size=2048 ./node_modules/karma/bin/karma start config/index.js --loglevel debug",
+    "general": "NODE_ENV=test node --max_old_space_size=2048 ./node_modules/karma/bin/karma start config/general.js --loglevel debug",
+    "slow": "NODE_ENV=test node --max_old_space_size=2048 ./node_modules/karma/bin/karma start config/slow.js --loglevel debug",
+    "test": "npm run general && npm run slow",
     "lint": "eslint . --plugin log"
   },
   "devDependencies": {

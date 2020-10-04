@@ -11,6 +11,16 @@ import { getEntries } from 'performance-timing';
 const [ navigation ] = await getEntries('navigation'); // PerformanceNavigationTiming{}
 ```
 
+Return only when a conditional is met
+```js
+const [ navigation ] = getEntries(
+	'navigation',
+	{
+		until: ([ entry ]) => (entry.loadEventEnd !== 0) // wait until page is loaded
+	}
+);
+```
+
 More Examples
 ```js
 const [ firstInpt ] = await getEntries('first-input'); // PerformanceEventTiming{}
