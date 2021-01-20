@@ -24,7 +24,7 @@
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "test": "NODE_ENV=test node --max_old_space_size=2048 ./node_modules/karma/bin/karma start config/index.js --loglevel debug",
+    "test": "NODE_ENV=test node --max_old_space_size=2048 ./node_modules/karma/bin/karma start config/index.js --log-level info",
     "lint": "eslint . --plugin log"
   },
   "devDependencies": {
