@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import wait from '@lets/wait';
-import { getEntries } from '.';
+import { paintSomething } from './helpers';
+import { getEntries } from '..';
 
 chai.use(chaiAsPromised);
 
@@ -18,7 +18,7 @@ describe('performance-timing', () => {
 	});
 	it('should return matching entries list by type', async() => {
 		const records = await getEntries('resource');
-		expect(records).to.have.lengthOf.at.least(5);
+		expect(records).to.have.lengthOf.at.least(4);
 		records.forEach(
 			record => expect(record).to.be.instanceof(PerformanceResourceTiming),
 		);
@@ -38,7 +38,7 @@ describe('performance-timing', () => {
 		);
 		expect(types).to.include('navigation');
 		expect(types).to.include('resource');
-		expect(types).not.to.include('paint');
+		expect(types).to.not.include('paint');
 		expect(types).not.to.include('first-input');
 	});
 	it('should wait for entries to exist', async () => {
@@ -54,13 +54,3 @@ describe('performance-timing', () => {
 		);
 	});
 });
-
-async function paintSomething() {
-	wait(1000).then(
-		() => {
-			const h1 = document.createElement('h1');
-			h1.appendChild(document.createTextNode('Hello there'));
-			document.body.appendChild(h1);
-		},
-	);
-}
